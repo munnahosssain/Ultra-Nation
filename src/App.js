@@ -11,12 +11,16 @@ function App() {
             .then(data => setCountries(data))
             .then(error => console.log(error))
     }, [])
+
+    const addCountry = (country) => {
+        console.log('Country added', country)
+    }
     return (
         <div className="App App-header">
             <h3>Country Loading: {countries.length}</h3>
             <ul>
                 {
-                    countries.map(country => <Country countryName={country.name}></Country>)
+                    countries.map(country => <Country countryInformation={country} addCountry={addCountry}></Country>)
                 }
             </ul>
         </div>
